@@ -36,23 +36,25 @@ namespace Intrebari_Bac
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.utilizatoriDataGridView = new System.Windows.Forms.DataGridView();
-            this.utilizatoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.database1DataSet = new Intrebari_Bac.Database1DataSet();
+            this.utilizatoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.utilizatoriTableAdapter = new Intrebari_Bac.Database1DataSetTableAdapters.UtilizatoriTableAdapter();
+            this.tableAdapterManager = new Intrebari_Bac.Database1DataSetTableAdapters.TableAdapterManager();
+            this.utilizatoriDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,14 +62,23 @@ namespace Intrebari_Bac
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utilizatoriTableAdapter = new Intrebari_Bac.Database1DataSetTableAdapters.UtilizatoriTableAdapter();
-            this.tableAdapterManager = new Intrebari_Bac.Database1DataSetTableAdapters.TableAdapterManager();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -76,6 +87,7 @@ namespace Intrebari_Bac
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -117,6 +129,13 @@ namespace Intrebari_Bac
             // 
             // tabPage2
             // 
+            this.tabPage2.AutoScroll = true;
+            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.pictureBox1);
+            this.tabPage2.Controls.Add(this.textBox8);
+            this.tabPage2.Controls.Add(this.textBox7);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -150,60 +169,59 @@ namespace Intrebari_Bac
             this.tabPage3.Text = "Inregistrare";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
+            // button3
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(792, 424);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Imagini";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(323, 276);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(100, 23);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Confirmare";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label1
+            // textBox6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(241, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nume utilizator";
+            this.textBox6.Location = new System.Drawing.Point(323, 234);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 5;
             // 
-            // label2
+            // textBox5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(280, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Parola";
+            this.textBox5.Location = new System.Drawing.Point(323, 191);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 4;
             // 
-            // label3
+            // textBox4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(228, 113);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Confirmare parola";
+            this.textBox4.Location = new System.Drawing.Point(323, 150);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 3;
             // 
-            // label4
+            // textBox3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(218, 153);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Localitate (optional)";
+            this.textBox3.Location = new System.Drawing.Point(323, 110);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.PasswordChar = '*';
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 2;
             // 
-            // label5
+            // textBox2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(231, 194);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Scoala (optional)";
+            this.textBox2.Location = new System.Drawing.Point(323, 67);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(323, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // label6
             // 
@@ -214,59 +232,81 @@ namespace Intrebari_Bac
             this.label6.TabIndex = 0;
             this.label6.Text = "Adresa email";
             // 
-            // textBox1
+            // label5
             // 
-            this.textBox1.Location = new System.Drawing.Point(323, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(231, 194);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Scoala (optional)";
             // 
-            // textBox2
+            // label4
             // 
-            this.textBox2.Location = new System.Drawing.Point(323, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(218, 153);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Localitate (optional)";
             // 
-            // textBox3
+            // label3
             // 
-            this.textBox3.Location = new System.Drawing.Point(323, 110);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(228, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Confirmare parola";
             // 
-            // textBox4
+            // label2
             // 
-            this.textBox4.Location = new System.Drawing.Point(323, 150);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(280, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Parola";
             // 
-            // textBox5
+            // label1
             // 
-            this.textBox5.Location = new System.Drawing.Point(323, 191);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(241, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nume utilizator";
             // 
-            // textBox6
+            // tabPage4
             // 
-            this.textBox6.Location = new System.Drawing.Point(323, 234);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 5;
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(792, 424);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Imagini";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // database1DataSet
             // 
-            this.button3.Location = new System.Drawing.Point(323, 276);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Confirmare";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.database1DataSet.DataSetName = "Database1DataSet";
+            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // utilizatoriBindingSource
+            // 
+            this.utilizatoriBindingSource.DataMember = "Utilizatori";
+            this.utilizatoriBindingSource.DataSource = this.database1DataSet;
+            // 
+            // utilizatoriTableAdapter
+            // 
+            this.utilizatoriTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.IntrebariTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Intrebari_Bac.Database1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UtilizatoriTableAdapter = this.utilizatoriTableAdapter;
             // 
             // utilizatoriDataGridView
             // 
@@ -279,22 +319,14 @@ namespace Intrebari_Bac
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
             this.utilizatoriDataGridView.DataSource = this.utilizatoriBindingSource;
-            this.utilizatoriDataGridView.Location = new System.Drawing.Point(456, 31);
+            this.utilizatoriDataGridView.Location = new System.Drawing.Point(453, 28);
             this.utilizatoriDataGridView.Name = "utilizatoriDataGridView";
             this.utilizatoriDataGridView.Size = new System.Drawing.Size(300, 220);
             this.utilizatoriDataGridView.TabIndex = 13;
-            // 
-            // utilizatoriBindingSource
-            // 
-            this.utilizatoriBindingSource.DataMember = "Utilizatori";
-            this.utilizatoriBindingSource.DataSource = this.database1DataSet;
-            // 
-            // database1DataSet
-            // 
-            this.database1DataSet.DataSetName = "Database1DataSet";
-            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -339,16 +371,78 @@ namespace Intrebari_Bac
             this.dataGridViewTextBoxColumn7.HeaderText = "Adresa_Mail";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // utilizatoriTableAdapter
+            // dataGridViewTextBoxColumn8
             // 
-            this.utilizatoriTableAdapter.ClearBeforeFill = true;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Imag_prof";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Imag_prof";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // tableAdapterManager
+            // dataGridViewTextBoxColumn9
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.IntrebariTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Intrebari_Bac.Database1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UtilizatoriTableAdapter = this.utilizatoriTableAdapter;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Fundal_Selectat";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Fundal_Selectat";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(227, 199);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Nume utilizator";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(268, 236);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Parola";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(309, 196);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(156, 20);
+            this.textBox7.TabIndex = 0;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(309, 233);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.PasswordChar = '*';
+            this.textBox8.Size = new System.Drawing.Size(156, 20);
+            this.textBox8.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(309, 38);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(156, 135);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(309, 269);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(156, 23);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Confirmare";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(792, 424);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Profil";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -361,11 +455,14 @@ namespace Intrebari_Bac
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -404,6 +501,15 @@ namespace Intrebari_Bac
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TabPage tabPage5;
     }
 }
 

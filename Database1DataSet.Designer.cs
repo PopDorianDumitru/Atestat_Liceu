@@ -694,6 +694,10 @@ namespace Intrebari_Bac {
             
             private global::System.Data.DataColumn columnAdresa_Mail;
             
+            private global::System.Data.DataColumn columnImag_prof;
+            
+            private global::System.Data.DataColumn columnFundal_Selectat;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public UtilizatoriDataTable() {
@@ -785,6 +789,22 @@ namespace Intrebari_Bac {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Imag_profColumn {
+                get {
+                    return this.columnImag_prof;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Fundal_SelectatColumn {
+                get {
+                    return this.columnFundal_Selectat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -820,7 +840,7 @@ namespace Intrebari_Bac {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UtilizatoriRow AddUtilizatoriRow(string Nume_Utilizator, string Parola, int Monede, string Localitate, string Scoala, string Adresa_Mail) {
+            public UtilizatoriRow AddUtilizatoriRow(string Nume_Utilizator, string Parola, int Monede, string Localitate, string Scoala, string Adresa_Mail, string Imag_prof, string Fundal_Selectat) {
                 UtilizatoriRow rowUtilizatoriRow = ((UtilizatoriRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -829,7 +849,9 @@ namespace Intrebari_Bac {
                         Monede,
                         Localitate,
                         Scoala,
-                        Adresa_Mail};
+                        Adresa_Mail,
+                        Imag_prof,
+                        Fundal_Selectat};
                 rowUtilizatoriRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUtilizatoriRow);
                 return rowUtilizatoriRow;
@@ -866,6 +888,8 @@ namespace Intrebari_Bac {
                 this.columnLocalitate = base.Columns["Localitate"];
                 this.columnScoala = base.Columns["Scoala"];
                 this.columnAdresa_Mail = base.Columns["Adresa_Mail"];
+                this.columnImag_prof = base.Columns["Imag_prof"];
+                this.columnFundal_Selectat = base.Columns["Fundal_Selectat"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -885,6 +909,10 @@ namespace Intrebari_Bac {
                 base.Columns.Add(this.columnScoala);
                 this.columnAdresa_Mail = new global::System.Data.DataColumn("Adresa_Mail", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAdresa_Mail);
+                this.columnImag_prof = new global::System.Data.DataColumn("Imag_prof", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImag_prof);
+                this.columnFundal_Selectat = new global::System.Data.DataColumn("Fundal_Selectat", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFundal_Selectat);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -901,6 +929,8 @@ namespace Intrebari_Bac {
                 this.columnScoala.MaxLength = 50;
                 this.columnAdresa_Mail.AllowDBNull = false;
                 this.columnAdresa_Mail.MaxLength = 50;
+                this.columnImag_prof.MaxLength = 50;
+                this.columnFundal_Selectat.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1357,6 +1387,38 @@ namespace Intrebari_Bac {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Imag_prof {
+                get {
+                    try {
+                        return ((string)(this[this.tableUtilizatori.Imag_profColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Imag_prof\' in table \'Utilizatori\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtilizatori.Imag_profColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Fundal_Selectat {
+                get {
+                    try {
+                        return ((string)(this[this.tableUtilizatori.Fundal_SelectatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Fundal_Selectat\' in table \'Utilizatori\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUtilizatori.Fundal_SelectatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsMonedeNull() {
                 return this.IsNull(this.tableUtilizatori.MonedeColumn);
             }
@@ -1389,6 +1451,30 @@ namespace Intrebari_Bac {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetScoalaNull() {
                 this[this.tableUtilizatori.ScoalaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsImag_profNull() {
+                return this.IsNull(this.tableUtilizatori.Imag_profColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetImag_profNull() {
+                this[this.tableUtilizatori.Imag_profColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFundal_SelectatNull() {
+                return this.IsNull(this.tableUtilizatori.Fundal_SelectatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFundal_SelectatNull() {
+                this[this.tableUtilizatori.Fundal_SelectatColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2141,10 +2227,12 @@ SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_C
             tableMapping.ColumnMappings.Add("Localitate", "Localitate");
             tableMapping.ColumnMappings.Add("Scoala", "Scoala");
             tableMapping.ColumnMappings.Add("Adresa_Mail", "Adresa_Mail");
+            tableMapping.ColumnMappings.Add("Imag_prof", "Imag_prof");
+            tableMapping.ColumnMappings.Add("Fundal_Selectat", "Fundal_Selectat");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Utilizatori] WHERE (([Id] = @Original_Id) AND ([Nume_Utilizator] = @Original_Nume_Utilizator) AND ([Parola] = @Original_Parola) AND ((@IsNull_Monede = 1 AND [Monede] IS NULL) OR ([Monede] = @Original_Monede)) AND ((@IsNull_Localitate = 1 AND [Localitate] IS NULL) OR ([Localitate] = @Original_Localitate)) AND ((@IsNull_Scoala = 1 AND [Scoala] IS NULL) OR ([Scoala] = @Original_Scoala)) AND ([Adresa_Mail] = @Original_Adresa_Mail))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Utilizatori] WHERE (([Id] = @Original_Id) AND ([Nume_Utilizator] = @Original_Nume_Utilizator) AND ([Parola] = @Original_Parola) AND ((@IsNull_Monede = 1 AND [Monede] IS NULL) OR ([Monede] = @Original_Monede)) AND ((@IsNull_Localitate = 1 AND [Localitate] IS NULL) OR ([Localitate] = @Original_Localitate)) AND ((@IsNull_Scoala = 1 AND [Scoala] IS NULL) OR ([Scoala] = @Original_Scoala)) AND ([Adresa_Mail] = @Original_Adresa_Mail) AND ((@IsNull_Fundal_Selectat = 1 AND [Fundal_Selectat] IS NULL) OR ([Fundal_Selectat] = @Original_Fundal_Selectat)) AND ((@IsNull_Imag_prof = 1 AND [Imag_prof] IS NULL) OR ([Imag_prof] = @Original_Imag_prof)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nume_Utilizator", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nume_Utilizator", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2156,10 +2244,14 @@ SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_C
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Scoala", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Scoala", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Scoala", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Scoala", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Adresa_Mail", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Adresa_Mail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fundal_Selectat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fundal_Selectat", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fundal_Selectat", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fundal_Selectat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Imag_prof", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imag_prof", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Imag_prof", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imag_prof", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Utilizatori] ([Nume_Utilizator], [Parola], [Monede], [Localitate], [Scoala], [Adresa_Mail]) VALUES (@Nume_Utilizator, @Parola, @Monede, @Localitate, @Scoala, @Adresa_Mail);
-SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM Utilizatori WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Utilizatori] ([Nume_Utilizator], [Parola], [Monede], [Localitate], [Scoala], [Adresa_Mail], [Fundal_Selectat], [Imag_prof]) VALUES (@Nume_Utilizator, @Parola, @Monede, @Localitate, @Scoala, @Adresa_Mail, @Fundal_Selectat, @Imag_prof);
+SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail, Fundal_Selectat, Imag_prof FROM Utilizatori WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nume_Utilizator", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nume_Utilizator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Parola", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Parola", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2167,10 +2259,12 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Localitate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Localitate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Scoala", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Scoala", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Adresa_Mail", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Adresa_Mail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fundal_Selectat", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fundal_Selectat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Imag_prof", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imag_prof", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Utilizatori] SET [Nume_Utilizator] = @Nume_Utilizator, [Parola] = @Parola, [Monede] = @Monede, [Localitate] = @Localitate, [Scoala] = @Scoala, [Adresa_Mail] = @Adresa_Mail WHERE (([Id] = @Original_Id) AND ([Nume_Utilizator] = @Original_Nume_Utilizator) AND ([Parola] = @Original_Parola) AND ((@IsNull_Monede = 1 AND [Monede] IS NULL) OR ([Monede] = @Original_Monede)) AND ((@IsNull_Localitate = 1 AND [Localitate] IS NULL) OR ([Localitate] = @Original_Localitate)) AND ((@IsNull_Scoala = 1 AND [Scoala] IS NULL) OR ([Scoala] = @Original_Scoala)) AND ([Adresa_Mail] = @Original_Adresa_Mail));
-SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM Utilizatori WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Utilizatori] SET [Nume_Utilizator] = @Nume_Utilizator, [Parola] = @Parola, [Monede] = @Monede, [Localitate] = @Localitate, [Scoala] = @Scoala, [Adresa_Mail] = @Adresa_Mail, [Fundal_Selectat] = @Fundal_Selectat, [Imag_prof] = @Imag_prof WHERE (([Id] = @Original_Id) AND ([Nume_Utilizator] = @Original_Nume_Utilizator) AND ([Parola] = @Original_Parola) AND ((@IsNull_Monede = 1 AND [Monede] IS NULL) OR ([Monede] = @Original_Monede)) AND ((@IsNull_Localitate = 1 AND [Localitate] IS NULL) OR ([Localitate] = @Original_Localitate)) AND ((@IsNull_Scoala = 1 AND [Scoala] IS NULL) OR ([Scoala] = @Original_Scoala)) AND ([Adresa_Mail] = @Original_Adresa_Mail) AND ((@IsNull_Fundal_Selectat = 1 AND [Fundal_Selectat] IS NULL) OR ([Fundal_Selectat] = @Original_Fundal_Selectat)) AND ((@IsNull_Imag_prof = 1 AND [Imag_prof] IS NULL) OR ([Imag_prof] = @Original_Imag_prof)));
+SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail, Fundal_Selectat, Imag_prof FROM Utilizatori WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nume_Utilizator", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nume_Utilizator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Parola", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Parola", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2178,6 +2272,8 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Localitate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Localitate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Scoala", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Scoala", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Adresa_Mail", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Adresa_Mail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fundal_Selectat", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fundal_Selectat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Imag_prof", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imag_prof", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nume_Utilizator", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nume_Utilizator", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Parola", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Parola", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2188,6 +2284,10 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Scoala", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Scoala", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Scoala", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Scoala", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Adresa_Mail", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Adresa_Mail", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Fundal_Selectat", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fundal_Selectat", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fundal_Selectat", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fundal_Selectat", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Imag_prof", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imag_prof", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Imag_prof", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imag_prof", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -2204,20 +2304,23 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM " +
-                "dbo.Utilizatori";
+            this._commandCollection[0].CommandText = "SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail, Fund" +
+                "al_Selectat, Imag_prof FROM Utilizatori";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "INSERT INTO Utilizatori\r\n                         (Nume_Utilizator, Parola, Local" +
-                "itate, Scoala, Adresa_Mail)\r\nVALUES        (@Nume_Utilizator,@Parola,@Localitate" +
-                ",@Scoala,@Adresa_Mail); \r\n";
+                "itate, Scoala, Adresa_Mail, Imag_prof, Fundal_Selectat)\r\nVALUES        (@Nume_Ut" +
+                "ilizator,@Parola,@Localitate,@Scoala,@Adresa_Mail,@Imag_prof,@Fundal_Selectat); " +
+                " \r\n";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nume_Utilizator", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nume_Utilizator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Parola", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Parola", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Localitate", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Localitate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Scoala", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Scoala", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Adresa_Mail", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Adresa_Mail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Imag_prof", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Imag_prof", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fundal_Selectat", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Fundal_Selectat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2277,7 +2380,7 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_Nume_Utilizator, string Original_Parola, global::System.Nullable<int> Original_Monede, string Original_Localitate, string Original_Scoala, string Original_Adresa_Mail) {
+        public virtual int Delete(int Original_Id, string Original_Nume_Utilizator, string Original_Parola, global::System.Nullable<int> Original_Monede, string Original_Localitate, string Original_Scoala, string Original_Adresa_Mail, string Original_Fundal_Selectat, string Original_Imag_prof) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
             if ((Original_Nume_Utilizator == null)) {
                 throw new global::System.ArgumentNullException("Original_Nume_Utilizator");
@@ -2321,6 +2424,22 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Adresa_Mail));
             }
+            if ((Original_Fundal_Selectat == null)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Fundal_Selectat));
+            }
+            if ((Original_Imag_prof == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Imag_prof));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2341,7 +2460,7 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nume_Utilizator, string Parola, global::System.Nullable<int> Monede, string Localitate, string Scoala, string Adresa_Mail) {
+        public virtual int Insert(string Nume_Utilizator, string Parola, global::System.Nullable<int> Monede, string Localitate, string Scoala, string Adresa_Mail, string Fundal_Selectat, string Imag_prof) {
             if ((Nume_Utilizator == null)) {
                 throw new global::System.ArgumentNullException("Nume_Utilizator");
             }
@@ -2378,6 +2497,18 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Adresa_Mail));
             }
+            if ((Fundal_Selectat == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Fundal_Selectat));
+            }
+            if ((Imag_prof == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Imag_prof));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2398,7 +2529,25 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nume_Utilizator, string Parola, global::System.Nullable<int> Monede, string Localitate, string Scoala, string Adresa_Mail, int Original_Id, string Original_Nume_Utilizator, string Original_Parola, global::System.Nullable<int> Original_Monede, string Original_Localitate, string Original_Scoala, string Original_Adresa_Mail, int Id) {
+        public virtual int Update(
+                    string Nume_Utilizator, 
+                    string Parola, 
+                    global::System.Nullable<int> Monede, 
+                    string Localitate, 
+                    string Scoala, 
+                    string Adresa_Mail, 
+                    string Fundal_Selectat, 
+                    string Imag_prof, 
+                    int Original_Id, 
+                    string Original_Nume_Utilizator, 
+                    string Original_Parola, 
+                    global::System.Nullable<int> Original_Monede, 
+                    string Original_Localitate, 
+                    string Original_Scoala, 
+                    string Original_Adresa_Mail, 
+                    string Original_Fundal_Selectat, 
+                    string Original_Imag_prof, 
+                    int Id) {
             if ((Nume_Utilizator == null)) {
                 throw new global::System.ArgumentNullException("Nume_Utilizator");
             }
@@ -2435,50 +2584,78 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Adresa_Mail));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Id));
+            if ((Fundal_Selectat == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Fundal_Selectat));
+            }
+            if ((Imag_prof == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Imag_prof));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Id));
             if ((Original_Nume_Utilizator == null)) {
                 throw new global::System.ArgumentNullException("Original_Nume_Utilizator");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Nume_Utilizator));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Nume_Utilizator));
             }
             if ((Original_Parola == null)) {
                 throw new global::System.ArgumentNullException("Original_Parola");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Parola));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Parola));
             }
             if ((Original_Monede.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Monede.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_Monede.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Localitate == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Localitate));
-            }
-            if ((Original_Scoala == null)) {
+            if ((Original_Localitate == null)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Scoala));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Localitate));
+            }
+            if ((Original_Scoala == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Scoala));
             }
             if ((Original_Adresa_Mail == null)) {
                 throw new global::System.ArgumentNullException("Original_Adresa_Mail");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Adresa_Mail));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Adresa_Mail));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Id));
+            if ((Original_Fundal_Selectat == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Fundal_Selectat));
+            }
+            if ((Original_Imag_prof == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Imag_prof));
+            }
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2499,15 +2676,32 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nume_Utilizator, string Parola, global::System.Nullable<int> Monede, string Localitate, string Scoala, string Adresa_Mail, int Original_Id, string Original_Nume_Utilizator, string Original_Parola, global::System.Nullable<int> Original_Monede, string Original_Localitate, string Original_Scoala, string Original_Adresa_Mail) {
-            return this.Update(Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail, Original_Id, Original_Nume_Utilizator, Original_Parola, Original_Monede, Original_Localitate, Original_Scoala, Original_Adresa_Mail, Original_Id);
+        public virtual int Update(
+                    string Nume_Utilizator, 
+                    string Parola, 
+                    global::System.Nullable<int> Monede, 
+                    string Localitate, 
+                    string Scoala, 
+                    string Adresa_Mail, 
+                    string Fundal_Selectat, 
+                    string Imag_prof, 
+                    int Original_Id, 
+                    string Original_Nume_Utilizator, 
+                    string Original_Parola, 
+                    global::System.Nullable<int> Original_Monede, 
+                    string Original_Localitate, 
+                    string Original_Scoala, 
+                    string Original_Adresa_Mail, 
+                    string Original_Fundal_Selectat, 
+                    string Original_Imag_prof) {
+            return this.Update(Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail, Fundal_Selectat, Imag_prof, Original_Id, Original_Nume_Utilizator, Original_Parola, Original_Monede, Original_Localitate, Original_Scoala, Original_Adresa_Mail, Original_Fundal_Selectat, Original_Imag_prof, Original_Id);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int Inserare_Utilizator_Now(string Nume_Utilizator, string Parola, string Localitate, string Scoala, string Adresa_Mail) {
+        public virtual int Inserare_Utilizator_Nou(string Nume_Utilizator, string Parola, string Localitate, string Scoala, string Adresa_Mail, string Imag_prof, string Fundal_Selectat) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((Nume_Utilizator == null)) {
                 throw new global::System.ArgumentNullException("Nume_Utilizator");
@@ -2538,6 +2732,18 @@ SELECT Id, Nume_Utilizator, Parola, Monede, Localitate, Scoala, Adresa_Mail FROM
             }
             else {
                 command.Parameters[4].Value = ((string)(Adresa_Mail));
+            }
+            if ((Imag_prof == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(Imag_prof));
+            }
+            if ((Fundal_Selectat == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(Fundal_Selectat));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
