@@ -14,6 +14,7 @@ namespace Intrebari_Bac
     {
         TabPage imag = new TabPage(), aut = new TabPage() , log = new TabPage(), profil = new TabPage();
         string utilizator_sesiune, parola_sesiune;
+        int id_sesiune, index_sesiune;
         private void button2_Click(object sender, EventArgs e)
         {
             tabControl1.TabPages.Remove(tabPage1);
@@ -38,7 +39,35 @@ namespace Intrebari_Bac
             this.utilizatoriTableAdapter.Fill(this.database1DataSet.Utilizatori);
 
         }
-
+        private void gaseste_cont(string util, string par)
+        {
+            int ok = 0;
+            for(int i = 0; i < database1DataSet.Utilizatori.Count && ok == 0; i++)
+            {
+                if(util == database1DataSet.Utilizatori[i].Nume_Utilizator && par == database1DataSet.Utilizatori[i].Parola)
+                {
+                    ok = 1;
+                    index_sesiune = i;
+                    id_sesiune = database1DataSet.Utilizatori[i].Id;
+                }
+            }    
+        }
+        private void deschide_profil()
+        {
+            tabControl1.TabPages.Insert(tabControl1.TabPages.Count, profil);
+            pictureBox2.Image = Image.FromFile($"Imagini_profil\\{database1DataSet.Utilizatori[index_sesiune].Imag_prof}");
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            try
+            {
+                textBox9.Text = database1DataSet.Utilizatori[index_sesiune].Monede.ToString();
+            
+            }
+            catch
+            {
+                textBox9.Text = "0";
+            }
+               
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             string util = textBox1.Text, prl = textBox2.Text, prlc = textBox3.Text, loc = textBox4.Text, sco = textBox5.Text, adm = textBox6.Text;
@@ -51,15 +80,19 @@ namespace Intrebari_Bac
                     int ok = 1;
                     for (int i = 0; i < database1DataSet.Utilizatori.Count && ok == 1; i++)
                         if (util == database1DataSet.Utilizatori[i].Nume_Utilizator || adm == database1DataSet.Utilizatori[i].Adresa_Mail)
+                        {
                             ok = 0;
+                        }
                     if (ok == 1)
                     {
-                        utilizatoriTableAdapter.Inserare_Utilizator_Nou(util, prl, loc, sco, adm, "def_prof.jpg", "def_fundal.jpg");
+                        utilizatoriTableAdapter.Inserare_Utilizator_Nou(util, prl, loc, sco, adm, "def_avatar.jpg", "def_fundal.jpg");
                         utilizatoriTableAdapter.Fill(database1DataSet.Utilizatori);
                         tabControl1.TabPages.Remove(tabPage3);
-                        tabControl1.TabPages.Insert(tabControl1.TabPages.Count, profil);
                         utilizator_sesiune = util;
                         parola_sesiune = prl;
+                        gaseste_cont(util, prl);
+                        id_sesiune = database1DataSet.Utilizatori[index_sesiune].Id; 
+                        deschide_profil();
                     }
                     else
                         MessageBox.Show("Numele de utilizator sau adresa de email sunt folosite de un alt utilizator");
@@ -70,6 +103,13 @@ namespace Intrebari_Bac
                     MessageBox.Show("Parolele nu sunt identice!");
                 
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form2 x = new Form2();
+            x.ShowDialog();
+
         }
 
         private void utilizatoriBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
@@ -99,8 +139,9 @@ namespace Intrebari_Bac
             {
                 utilizator_sesiune = num;
                 parola_sesiune = prl;
+                gaseste_cont(num, prl);
                 tabControl1.TabPages.Remove(tabPage2);
-                tabControl1.TabPages.Insert(tabControl1.TabPages.Count, profil);
+                deschide_profil();
             }
             else
             {

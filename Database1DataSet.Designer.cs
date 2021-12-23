@@ -541,12 +541,13 @@ namespace Intrebari_Bac {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnEnunt.MaxLength = 50;
-                this.columnImagine.MaxLength = 50;
-                this.columnRaspuns_1.MaxLength = 50;
-                this.columnRaspuns_2.MaxLength = 50;
-                this.columnRaspuns_3.MaxLength = 50;
-                this.columnRaspuns_4.MaxLength = 50;
+                this.columnEnunt.MaxLength = 1000;
+                this.columnImagine.DefaultValue = ((string)("null"));
+                this.columnImagine.MaxLength = 1000;
+                this.columnRaspuns_1.MaxLength = 1000;
+                this.columnRaspuns_2.MaxLength = 1000;
+                this.columnRaspuns_3.MaxLength = 1000;
+                this.columnRaspuns_4.MaxLength = 1000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1682,26 +1683,16 @@ namespace Intrebari_Bac.Database1DataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Intrebari] WHERE (([Id] = @Original_Id) AND ((@IsNull_Enunt = 1 AND [Enunt] IS NULL) OR ([Enunt] = @Original_Enunt)) AND ((@IsNull_Imagine = 1 AND [Imagine] IS NULL) OR ([Imagine] = @Original_Imagine)) AND ((@IsNull_Raspuns_1 = 1 AND [Raspuns_1] IS NULL) OR ([Raspuns_1] = @Original_Raspuns_1)) AND ((@IsNull_Raspuns_2 = 1 AND [Raspuns_2] IS NULL) OR ([Raspuns_2] = @Original_Raspuns_2)) AND ((@IsNull_Raspuns_3 = 1 AND [Raspuns_3] IS NULL) OR ([Raspuns_3] = @Original_Raspuns_3)) AND ((@IsNull_Raspuns_4 = 1 AND [Raspuns_4] IS NULL) OR ([Raspuns_4] = @Original_Raspuns_4)) AND ((@IsNull_Raspuns_Corect = 1 AND [Raspuns_Corect] IS NULL) OR ([Raspuns_Corect] = @Original_Raspuns_Corect)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Intrebari] WHERE (([Id] = @Original_Id) AND ((@IsNull_Raspuns_Corect" +
+                " = 1 AND [Raspuns_Corect] IS NULL) OR ([Raspuns_Corect] = @Original_Raspuns_Core" +
+                "ct)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Enunt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enunt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Enunt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enunt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Imagine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imagine", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Imagine", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imagine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Raspuns_1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Raspuns_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Raspuns_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Raspuns_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Raspuns_3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Raspuns_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Raspuns_4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Raspuns_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Raspuns_Corect", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_Corect", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Raspuns_Corect", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_Corect", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Intrebari] ([Enunt], [Imagine], [Raspuns_1], [Raspuns_2], [Raspuns_3], [Raspuns_4], [Raspuns_Corect]) VALUES (@Enunt, @Imagine, @Raspuns_1, @Raspuns_2, @Raspuns_3, @Raspuns_4, @Raspuns_Corect);
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Intrebari] ([Enunt], [Imagine], [Raspuns_1], [Raspuns_2], [Raspuns_3], [Raspuns_4], [Raspuns_Corect]) VALUES (@Enunt, @Imagine, @Raspuns_1, @Raspuns_2, @Raspuns_3, @Raspuns_4, @Raspuns_Corect);
 SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_Corect FROM Intrebari WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enunt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enunt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1713,7 +1704,7 @@ SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_C
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Raspuns_Corect", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_Corect", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Intrebari] SET [Enunt] = @Enunt, [Imagine] = @Imagine, [Raspuns_1] = @Raspuns_1, [Raspuns_2] = @Raspuns_2, [Raspuns_3] = @Raspuns_3, [Raspuns_4] = @Raspuns_4, [Raspuns_Corect] = @Raspuns_Corect WHERE (([Id] = @Original_Id) AND ((@IsNull_Enunt = 1 AND [Enunt] IS NULL) OR ([Enunt] = @Original_Enunt)) AND ((@IsNull_Imagine = 1 AND [Imagine] IS NULL) OR ([Imagine] = @Original_Imagine)) AND ((@IsNull_Raspuns_1 = 1 AND [Raspuns_1] IS NULL) OR ([Raspuns_1] = @Original_Raspuns_1)) AND ((@IsNull_Raspuns_2 = 1 AND [Raspuns_2] IS NULL) OR ([Raspuns_2] = @Original_Raspuns_2)) AND ((@IsNull_Raspuns_3 = 1 AND [Raspuns_3] IS NULL) OR ([Raspuns_3] = @Original_Raspuns_3)) AND ((@IsNull_Raspuns_4 = 1 AND [Raspuns_4] IS NULL) OR ([Raspuns_4] = @Original_Raspuns_4)) AND ((@IsNull_Raspuns_Corect = 1 AND [Raspuns_Corect] IS NULL) OR ([Raspuns_Corect] = @Original_Raspuns_Corect)));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Intrebari] SET [Enunt] = @Enunt, [Imagine] = @Imagine, [Raspuns_1] = @Raspuns_1, [Raspuns_2] = @Raspuns_2, [Raspuns_3] = @Raspuns_3, [Raspuns_4] = @Raspuns_4, [Raspuns_Corect] = @Raspuns_Corect WHERE (([Id] = @Original_Id) AND ((@IsNull_Raspuns_Corect = 1 AND [Raspuns_Corect] IS NULL) OR ([Raspuns_Corect] = @Original_Raspuns_Corect)));
 SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_Corect FROM Intrebari WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Enunt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enunt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1724,18 +1715,6 @@ SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_C
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Raspuns_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Raspuns_Corect", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_Corect", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Enunt", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enunt", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Enunt", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Enunt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Imagine", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imagine", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Imagine", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Imagine", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Raspuns_1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Raspuns_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Raspuns_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Raspuns_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Raspuns_3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Raspuns_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Raspuns_4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Raspuns_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Raspuns_Corect", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_Corect", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Raspuns_Corect", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Raspuns_Corect", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1754,8 +1733,8 @@ SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_C
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_Co" +
-                "rect FROM dbo.Intrebari";
+            this._commandCollection[0].CommandText = "SELECT        Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Ras" +
+                "puns_Corect\r\nFROM            Intrebari";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1763,7 +1742,7 @@ SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database1DataSet.IntrebariDataTable dataTable) {
+        public virtual int Fillintrebare(Database1DataSet.IntrebariDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1816,63 +1795,15 @@ SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_Enunt, string Original_Imagine, string Original_Raspuns_1, string Original_Raspuns_2, string Original_Raspuns_3, string Original_Raspuns_4, global::System.Nullable<int> Original_Raspuns_Corect) {
+        public virtual int Delete(int Original_Id, global::System.Nullable<int> Original_Raspuns_Corect) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_Enunt == null)) {
+            if ((Original_Raspuns_Corect.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Raspuns_Corect.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Enunt));
-            }
-            if ((Original_Imagine == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Imagine));
-            }
-            if ((Original_Raspuns_1 == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Raspuns_1));
-            }
-            if ((Original_Raspuns_2 == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Raspuns_2));
-            }
-            if ((Original_Raspuns_3 == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Raspuns_3));
-            }
-            if ((Original_Raspuns_4 == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Raspuns_4));
-            }
-            if ((Original_Raspuns_Corect.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Raspuns_Corect.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1957,23 +1888,7 @@ SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Enunt, 
-                    string Imagine, 
-                    string Raspuns_1, 
-                    string Raspuns_2, 
-                    string Raspuns_3, 
-                    string Raspuns_4, 
-                    global::System.Nullable<int> Raspuns_Corect, 
-                    int Original_Id, 
-                    string Original_Enunt, 
-                    string Original_Imagine, 
-                    string Original_Raspuns_1, 
-                    string Original_Raspuns_2, 
-                    string Original_Raspuns_3, 
-                    string Original_Raspuns_4, 
-                    global::System.Nullable<int> Original_Raspuns_Corect, 
-                    int Id) {
+        public virtual int Update(string Enunt, string Imagine, string Raspuns_1, string Raspuns_2, string Raspuns_3, string Raspuns_4, global::System.Nullable<int> Raspuns_Corect, int Original_Id, global::System.Nullable<int> Original_Raspuns_Corect, int Id) {
             if ((Enunt == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2017,63 +1932,15 @@ SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_C
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Id));
-            if ((Original_Enunt == null)) {
+            if ((Original_Raspuns_Corect.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Raspuns_Corect.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Enunt));
-            }
-            if ((Original_Imagine == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Imagine));
-            }
-            if ((Original_Raspuns_1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Raspuns_1));
-            }
-            if ((Original_Raspuns_2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Raspuns_2));
-            }
-            if ((Original_Raspuns_3 == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Raspuns_3));
-            }
-            if ((Original_Raspuns_4 == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Raspuns_4));
-            }
-            if ((Original_Raspuns_Corect.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_Raspuns_Corect.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Id));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2094,8 +1961,8 @@ SELECT Id, Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Enunt, string Imagine, string Raspuns_1, string Raspuns_2, string Raspuns_3, string Raspuns_4, global::System.Nullable<int> Raspuns_Corect, int Original_Id, string Original_Enunt, string Original_Imagine, string Original_Raspuns_1, string Original_Raspuns_2, string Original_Raspuns_3, string Original_Raspuns_4, global::System.Nullable<int> Original_Raspuns_Corect) {
-            return this.Update(Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_Corect, Original_Id, Original_Enunt, Original_Imagine, Original_Raspuns_1, Original_Raspuns_2, Original_Raspuns_3, Original_Raspuns_4, Original_Raspuns_Corect, Original_Id);
+        public virtual int Update(string Enunt, string Imagine, string Raspuns_1, string Raspuns_2, string Raspuns_3, string Raspuns_4, global::System.Nullable<int> Raspuns_Corect, int Original_Id, global::System.Nullable<int> Original_Raspuns_Corect) {
+            return this.Update(Enunt, Imagine, Raspuns_1, Raspuns_2, Raspuns_3, Raspuns_4, Raspuns_Corect, Original_Id, Original_Raspuns_Corect, Original_Id);
         }
     }
     
