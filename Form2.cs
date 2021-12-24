@@ -12,6 +12,7 @@ namespace Intrebari_Bac
 {
     public partial class Form2 : Form
     {
+        int x, y, z, w, q;
         Random intrebare = new Random();
         private void Seteaza_Raspunsuri(int x, int y, int z, int w, int q)
         {
@@ -66,6 +67,20 @@ namespace Intrebari_Bac
                 pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage; }
             catch { }
         }
+        private void Corecteaza_Intrebare(GroupBox t, int nr, RadioButton ans)
+        {
+            
+                ans.BackColor = System.Drawing.Color.Red;
+            
+            foreach(RadioButton rdb in t.Controls.OfType<RadioButton>())
+            {
+                if(rdb.Text == database1DataSet.Intrebari[nr][$"Raspuns_{database1DataSet.Intrebari[nr].Raspuns_Corect}"].ToString())
+                {
+                    rdb.BackColor = System.Drawing.Color.LightGreen;
+                    break;
+                }
+            }
+        }
         public Form2()
         {
             InitializeComponent();
@@ -85,7 +100,7 @@ namespace Intrebari_Bac
       
             // TODO: This line of code loads data into the 'database1DataSet.Intrebari' table. You can move, or remove it, as needed.
             this.intrebariTableAdapter.Fillintrebare(this.database1DataSet.Intrebari);
-            int x = intrebare.Next(0, database1DataSet.Intrebari.Count - 1), y, z, w, q;
+            x = intrebare.Next(0, database1DataSet.Intrebari.Count - 1);
             y = intrebare.Next(0, database1DataSet.Intrebari.Count - 1);
             while (y == x) y = intrebare.Next(0, database1DataSet.Intrebari.Count - 1);
             z = intrebare.Next(0, database1DataSet.Intrebari.Count - 1);
@@ -99,8 +114,93 @@ namespace Intrebari_Bac
             Seteaza_Imagini(x, y, z, w, q);
         }
 
-
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string rasp1 = "", rasp2 = "", rasp3 = "", rasp4 = "", rasp5 = "";
+            groupBox1.Enabled = false;
+            groupBox2.Enabled = false;
+            groupBox3.Enabled = false;
+            groupBox4.Enabled = false;
+            groupBox5.Enabled = false;
+            RadioButton ans1 = new RadioButton(), ans2= new RadioButton(), ans3 = new RadioButton(), ans4 = new RadioButton(), ans5= new RadioButton();
+            foreach(RadioButton rdb in groupBox1.Controls.OfType<RadioButton>())
+            {
+                if(rdb.Checked == true)
+                {
+                    rasp1 = rdb.Text;
+                    ans1 = rdb;
+                }
+            }
+            foreach (RadioButton rdb in groupBox2.Controls.OfType<RadioButton>())
+            {
+                if (rdb.Checked == true)
+                {
+                    rasp2 = rdb.Text;
+                    ans2 = rdb;
+                }
+            }
+            foreach (RadioButton rdb in groupBox3.Controls.OfType<RadioButton>())
+            {
+                if (rdb.Checked == true)
+                {
+                    rasp3 = rdb.Text;
+                    ans3 = rdb;
+                }
+            }
+            foreach (RadioButton rdb in groupBox4.Controls.OfType<RadioButton>())
+            {
+                if (rdb.Checked == true)
+                {
+                    rasp4 = rdb.Text;
+                    ans4 = rdb;
+                }
+            }
+            foreach (RadioButton rdb in groupBox5.Controls.OfType<RadioButton>())
+            {
+                if (rdb.Checked == true)
+                {
+                    rasp5 = rdb.Text;
+                    ans5 = rdb;
+                }
+            }
+            int rasp_cor = 0;
+            if (rasp1 == database1DataSet.Intrebari[x][$"Raspuns_{database1DataSet.Intrebari[x].Raspuns_Corect}"].ToString())
+            {
+                rasp_cor++;
+                ans1.BackColor = System.Drawing.Color.LightGreen;
+            }
+            else
+                Corecteaza_Intrebare(groupBox1, x, ans1);
+            if (rasp2 == database1DataSet.Intrebari[y][$"Raspuns_{database1DataSet.Intrebari[y].Raspuns_Corect}"].ToString())
+            {
+                rasp_cor++;
+                ans2.BackColor = System.Drawing.Color.LightGreen;
+            }
+            else
+                Corecteaza_Intrebare(groupBox2, y, ans2);
+            if (rasp3 == database1DataSet.Intrebari[z][$"Raspuns_{database1DataSet.Intrebari[z].Raspuns_Corect}"].ToString())
+            {
+                rasp_cor++;
+                ans3.BackColor = System.Drawing.Color.LightGreen;
+            }
+            else
+                Corecteaza_Intrebare(groupBox3, z, ans3);
+            if (rasp4 == database1DataSet.Intrebari[w][$"Raspuns_{database1DataSet.Intrebari[w].Raspuns_Corect}"].ToString())
+            {
+                rasp_cor++;
+                ans4.BackColor = System.Drawing.Color.LightGreen;
+            }
+            else
+                Corecteaza_Intrebare(groupBox4, w, ans4);
+            if (rasp5 == database1DataSet.Intrebari[q][$"Raspuns_{database1DataSet.Intrebari[q].Raspuns_Corect}"].ToString())
+            {
+                rasp_cor++;
+                ans5.BackColor = System.Drawing.Color.LightGreen;
+            }
+            else
+                Corecteaza_Intrebare(groupBox5, q, ans5);
+            MessageBox.Show($"Raspunsuri corecte: {rasp_cor}/5");
+           
+        }
     }
 }
