@@ -43,17 +43,6 @@ namespace Intrebari_Bac
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.utilizatoriDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utilizatoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database1DataSet = new Intrebari_Bac.Database1DataSet();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -74,21 +63,39 @@ namespace Intrebari_Bac
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utilizatoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSet = new Intrebari_Bac.Database1DataSet();
             this.utilizatoriTableAdapter = new Intrebari_Bac.Database1DataSetTableAdapters.UtilizatoriTableAdapter();
             this.tableAdapterManager = new Intrebari_Bac.Database1DataSetTableAdapters.TableAdapterManager();
             this.imagini_profilBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.imagini_profilTableAdapter = new Intrebari_Bac.Database1DataSetTableAdapters.Imagini_profilTableAdapter();
+            this.cumparari_Imagini_ProfilBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cumparari_Imagini_ProfilTableAdapter = new Intrebari_Bac.Database1DataSetTableAdapters.Cumparari_Imagini_ProfilTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.utilizatoriDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagini_profilBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cumparari_Imagini_ProfilBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -251,71 +258,6 @@ namespace Intrebari_Bac
             this.utilizatoriDataGridView.TabIndex = 13;
             this.utilizatoriDataGridView.Visible = false;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nume_Utilizator";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nume_Utilizator";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Parola";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Parola";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Monede";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Monede";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Localitate";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Localitate";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Scoala";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Scoala";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Adresa_Mail";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Adresa_Mail";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Imag_prof";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Imag_prof";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Fundal_Selectat";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Fundal_Selectat";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // utilizatoriBindingSource
-            // 
-            this.utilizatoriBindingSource.DataMember = "Utilizatori";
-            this.utilizatoriBindingSource.DataSource = this.database1DataSet;
-            // 
-            // database1DataSet
-            // 
-            this.database1DataSet.DataSetName = "Database1DataSet";
-            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(323, 276);
@@ -426,6 +368,8 @@ namespace Intrebari_Bac
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.pictureBox3);
+            this.tabPage4.Controls.Add(this.listBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -494,6 +438,90 @@ namespace Intrebari_Bac
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(3, 3);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(216, 418);
+            this.listBox1.TabIndex = 0;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox3.Location = new System.Drawing.Point(225, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(564, 418);
+            this.pictureBox3.TabIndex = 1;
+            this.pictureBox3.TabStop = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nume_Utilizator";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nume_Utilizator";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Parola";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Parola";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Monede";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Monede";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Localitate";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Localitate";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Scoala";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Scoala";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Adresa_Mail";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Adresa_Mail";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Imag_prof";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Imag_prof";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Fundal_Selectat";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Fundal_Selectat";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // utilizatoriBindingSource
+            // 
+            this.utilizatoriBindingSource.DataMember = "Utilizatori";
+            this.utilizatoriBindingSource.DataSource = this.database1DataSet;
+            // 
+            // database1DataSet
+            // 
+            this.database1DataSet.DataSetName = "Database1DataSet";
+            this.database1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // utilizatoriTableAdapter
             // 
             this.utilizatoriTableAdapter.ClearBeforeFill = true;
@@ -501,6 +529,7 @@ namespace Intrebari_Bac
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Cumparari_Imagini_ProfilTableAdapter = null;
             this.tableAdapterManager.Imagini_profilTableAdapter = null;
             this.tableAdapterManager.IntrebariTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Intrebari_Bac.Database1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -514,6 +543,15 @@ namespace Intrebari_Bac
             // imagini_profilTableAdapter
             // 
             this.imagini_profilTableAdapter.ClearBeforeFill = true;
+            // 
+            // cumparari_Imagini_ProfilBindingSource
+            // 
+            this.cumparari_Imagini_ProfilBindingSource.DataMember = "Cumparari_Imagini_Profil";
+            this.cumparari_Imagini_ProfilBindingSource.DataSource = this.database1DataSet;
+            // 
+            // cumparari_Imagini_ProfilTableAdapter
+            // 
+            this.cumparari_Imagini_ProfilTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -532,12 +570,15 @@ namespace Intrebari_Bac
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.utilizatoriDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
+            this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utilizatoriBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagini_profilBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cumparari_Imagini_ProfilBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -592,6 +633,10 @@ namespace Intrebari_Bac
         private System.Windows.Forms.BindingSource imagini_profilBindingSource;
         private Database1DataSetTableAdapters.Imagini_profilTableAdapter imagini_profilTableAdapter;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.BindingSource cumparari_Imagini_ProfilBindingSource;
+        private Database1DataSetTableAdapters.Cumparari_Imagini_ProfilTableAdapter cumparari_Imagini_ProfilTableAdapter;
     }
 }
 

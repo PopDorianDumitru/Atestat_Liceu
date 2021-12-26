@@ -15,7 +15,8 @@ namespace Intrebari_Bac
         TabPage imag = new TabPage(), aut = new TabPage() , log = new TabPage(), profil = new TabPage();
         string utilizator_sesiune, parola_sesiune;
         int id_sesiune, index_sesiune;
-        
+     
+        TableLayoutPanel pan_imag = new TableLayoutPanel();
         private void button2_Click(object sender, EventArgs e)
         {
             tabControl1.TabPages.Remove(tabPage1);
@@ -29,50 +30,25 @@ namespace Intrebari_Bac
             this.tableAdapterManager.UpdateAll(this.database1DataSet);
 
         }
-
+   
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'database1DataSet.Cumparari_Imagini_Profil' table. You can move, or remove it, as needed.
+            this.cumparari_Imagini_ProfilTableAdapter.Fill(this.database1DataSet.Cumparari_Imagini_Profil);
             // TODO: This line of code loads data into the 'database1DataSet.Imagini_profil' table. You can move, or remove it, as needed.
             this.imagini_profilTableAdapter.Fill(this.database1DataSet.Imagini_profil);
-            // TODO: This line of code loads data into the 'database1DataSet.Utilizatori' table. You can move, or remove it, as needed.
-            //this.utilizatoriTableAdapter.Fill(this.database1DataSet.Utilizatori);
-            // TODO: This line of code loads data into the 'database1DataSet.Utilizatori' table. You can move, or remove it, as needed.
-            //this.utilizatoriTableAdapter.Fill(this.database1DataSet.Utilizatori);
-            // TODO: This line of code loads data into the 'database1DataSet.Utilizatori' table. You can move, or remove it, as needed.
             this.utilizatoriTableAdapter.Fill(this.database1DataSet.Utilizatori);
-
         }
+    
         private void deschide_imagini_profil()
         {
+           
             if(tabControl1.TabPages.Contains(imag) == false)
             {
-                TableLayoutPanel pan_imag = new TableLayoutPanel();
-                int i = 0, j = 0;
-                pan_imag.ColumnCount = 5;
-                pan_imag.RowCount = database1DataSet.Imagini_profil.Count / 5;
-                if (database1DataSet.Imagini_profil.Count % 5 != 0)
-                    pan_imag.RowCount++;
-                tabPage4.Controls.Add(pan_imag);
-                pan_imag.Dock = DockStyle.Fill;
-                for (int q = 0; q < database1DataSet.Imagini_profil.Count; q++)
+                for(int i = 0; i < database1DataSet.Imagini_profil.Count; i++)
                 {
-                    PictureBox avat = new PictureBox();
-                    avat.Image = Image.FromFile($"Imagini_profil\\ava{q + 1}.jpg");
-                    avat.SizeMode = PictureBoxSizeMode.StretchImage;
-                    avat.Margin = Padding.Empty;
-                    avat.Padding = Padding.Empty;
-                    avat.Height = pan_imag.Size.Height / pan_imag.RowCount;
-                    avat.Width = pan_imag.Size.Width / pan_imag.ColumnCount;
-                    pan_imag.Controls.Add(avat, i, j);
-                    avat.Dock = DockStyle.Fill;
-                    i++;
-                    if (i > 5)
-                    {
-                        i = 0;
-                        j++;
-                    }
+                    listBox1.Items.Add($"{database1DataSet.Imagini_profil[i].Nume_imagine}");
                 }
-
                 tabControl1.TabPages.Insert(tabControl1.TabPages.Count, imag);
             }
         }
@@ -152,6 +128,7 @@ namespace Intrebari_Bac
                 int monede_nou = Convert.ToInt32(textBox9.Text) + x.punctaj;
                 utilizatoriTableAdapter.UpdateMonedeUtilizator(monede_nou, id_sesiune);
                 textBox9.Text = monede_nou.ToString();
+                utilizatoriTableAdapter.Fill(this.database1DataSet.Utilizatori);
             }
         }
 
@@ -160,22 +137,53 @@ namespace Intrebari_Bac
             deschide_imagini_profil();
         }
 
-        private void utilizatoriBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Validate();
-            this.utilizatoriBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.database1DataSet);
-
+            int index_imagine = -1;
+            for(int i = 0; i < database1DataSet.Imagini_profil.Count && index_imagine == -1; i++)
+            {
+                if (database1DataSet.Imagini_profil[i].Nume_imagine == listBox1.SelectedItem.ToString())
+                    index_imagine = i;
+            }
+            pictureBox3.Image = Image.FromFile($"Imagini_profil\\{listBox1.SelectedItem.ToString()}.jpg");
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            int ok = 0;
+            for (int i = 0; i < database1DataSet.Cumparari_Imagini_Profil.Count && ok == 0; i++)
+            {
+                if (database1DataSet.Cumparari_Imagini_Profil[i].Id_Utilizator == id_sesiune && database1DataSet.Cumparari_Imagini_Profil[i].Id_Imagine_Profil == database1DataSet.Imagini_profil[index_imagine].Id_imagine)
+                    ok = 1;
+            }
+            if(ok == 0)
+            {
+                DialogResult set = MessageBox.Show($"Doriti sa cumparati imaginea pentru {database1DataSet.Imagini_profil[index_imagine].Valoare} de monede?","Cumparare", MessageBoxButtons.YesNo);
+                if(set == DialogResult.Yes)
+                {
+                    if (database1DataSet.Utilizatori[index_sesiune].Monede < database1DataSet.Imagini_profil[index_imagine].Valoare)
+                        MessageBox.Show("Nu ai destule monede!");
+                    else
+                    {
+                        int monede_sesiune = Convert.ToInt32(textBox9.Text) - database1DataSet.Imagini_profil[index_imagine].Valoare;
+                        textBox9.Text = monede_sesiune.ToString();
+                        utilizatoriTableAdapter.UpdateMonedeUtilizator(monede_sesiune, id_sesiune);
+                        utilizatoriTableAdapter.Fill(this.database1DataSet.Utilizatori);
+                        cumparari_Imagini_ProfilTableAdapter.InsertQuery_Cumparare_Noua(id_sesiune, database1DataSet.Imagini_profil[index_imagine].Id_imagine, database1DataSet.Imagini_profil[index_imagine].Valoare);
+                        cumparari_Imagini_ProfilTableAdapter.Fill(this.database1DataSet.Cumparari_Imagini_Profil);
+                    }
+                }
+                
+            }
+            else
+            {
+                DialogResult set = MessageBox.Show("Selectezi drept imagine de profil?", "Selectare", MessageBoxButtons.YesNo);
+                if(set == DialogResult.Yes)
+                {
+                    pictureBox2.Image = Image.FromFile($"Imagini_profil\\{listBox1.SelectedItem.ToString()}.jpg");
+                    utilizatoriTableAdapter.Update_Imagine_Profil_Utilizator(listBox1.SelectedItem.ToString()+".jpg", id_sesiune);
+                }
+            }
         }
 
-        private void utilizatoriBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.utilizatoriBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.database1DataSet);
-
-        }
-
+       
         private void button4_Click(object sender, EventArgs e)
         {
             string num = textBox7.Text, prl = textBox8.Text;
