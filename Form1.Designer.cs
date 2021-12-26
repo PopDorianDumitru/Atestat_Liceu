@@ -69,12 +69,15 @@ namespace Intrebari_Bac
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.utilizatoriTableAdapter = new Intrebari_Bac.Database1DataSetTableAdapters.UtilizatoriTableAdapter();
             this.tableAdapterManager = new Intrebari_Bac.Database1DataSetTableAdapters.TableAdapterManager();
+            this.imagini_profilBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.imagini_profilTableAdapter = new Intrebari_Bac.Database1DataSetTableAdapters.Imagini_profilTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -85,6 +88,7 @@ namespace Intrebari_Bac
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagini_profilBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -432,6 +436,7 @@ namespace Intrebari_Bac
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.button6);
             this.tabPage5.Controls.Add(this.button5);
             this.tabPage5.Controls.Add(this.textBox9);
             this.tabPage5.Controls.Add(this.label9);
@@ -443,6 +448,16 @@ namespace Intrebari_Bac
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Profil";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(383, 32);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(102, 74);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Imagini";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -486,9 +501,19 @@ namespace Intrebari_Bac
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Imagini_profilTableAdapter = null;
             this.tableAdapterManager.IntrebariTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Intrebari_Bac.Database1DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UtilizatoriTableAdapter = this.utilizatoriTableAdapter;
+            // 
+            // imagini_profilBindingSource
+            // 
+            this.imagini_profilBindingSource.DataMember = "Imagini_profil";
+            this.imagini_profilBindingSource.DataSource = this.database1DataSet;
+            // 
+            // imagini_profilTableAdapter
+            // 
+            this.imagini_profilTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -512,6 +537,7 @@ namespace Intrebari_Bac
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagini_profilBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -563,6 +589,9 @@ namespace Intrebari_Bac
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.BindingSource imagini_profilBindingSource;
+        private Database1DataSetTableAdapters.Imagini_profilTableAdapter imagini_profilTableAdapter;
+        private System.Windows.Forms.Button button6;
     }
 }
 

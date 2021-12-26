@@ -13,6 +13,7 @@ namespace Intrebari_Bac
     public partial class Form2 : Form
     {
         int x, y, z, w, q;
+        public int punctaj = 0;
         Random intrebare = new Random();
         private void Seteaza_Raspunsuri(int x, int y, int z, int w, int q)
         {
@@ -200,7 +201,7 @@ namespace Intrebari_Bac
             else
                 Corecteaza_Intrebare(groupBox5, q, ans5);
             MessageBox.Show($"Raspunsuri corecte: {rasp_cor}/5");
-           
+            punctaj = rasp_cor * 20;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Intrebari_Bac
         TabPage imag = new TabPage(), aut = new TabPage() , log = new TabPage(), profil = new TabPage();
         string utilizator_sesiune, parola_sesiune;
         int id_sesiune, index_sesiune;
+        
         private void button2_Click(object sender, EventArgs e)
         {
             tabControl1.TabPages.Remove(tabPage1);
@@ -31,6 +32,8 @@ namespace Intrebari_Bac
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'database1DataSet.Imagini_profil' table. You can move, or remove it, as needed.
+            this.imagini_profilTableAdapter.Fill(this.database1DataSet.Imagini_profil);
             // TODO: This line of code loads data into the 'database1DataSet.Utilizatori' table. You can move, or remove it, as needed.
             //this.utilizatoriTableAdapter.Fill(this.database1DataSet.Utilizatori);
             // TODO: This line of code loads data into the 'database1DataSet.Utilizatori' table. You can move, or remove it, as needed.
@@ -38,6 +41,40 @@ namespace Intrebari_Bac
             // TODO: This line of code loads data into the 'database1DataSet.Utilizatori' table. You can move, or remove it, as needed.
             this.utilizatoriTableAdapter.Fill(this.database1DataSet.Utilizatori);
 
+        }
+        private void deschide_imagini_profil()
+        {
+            if(tabControl1.TabPages.Contains(imag) == false)
+            {
+                TableLayoutPanel pan_imag = new TableLayoutPanel();
+                int i = 0, j = 0;
+                pan_imag.ColumnCount = 5;
+                pan_imag.RowCount = database1DataSet.Imagini_profil.Count / 5;
+                if (database1DataSet.Imagini_profil.Count % 5 != 0)
+                    pan_imag.RowCount++;
+                tabPage4.Controls.Add(pan_imag);
+                pan_imag.Dock = DockStyle.Fill;
+                for (int q = 0; q < database1DataSet.Imagini_profil.Count; q++)
+                {
+                    PictureBox avat = new PictureBox();
+                    avat.Image = Image.FromFile($"Imagini_profil\\ava{q + 1}.jpg");
+                    avat.SizeMode = PictureBoxSizeMode.StretchImage;
+                    avat.Margin = Padding.Empty;
+                    avat.Padding = Padding.Empty;
+                    avat.Height = pan_imag.Size.Height / pan_imag.RowCount;
+                    avat.Width = pan_imag.Size.Width / pan_imag.ColumnCount;
+                    pan_imag.Controls.Add(avat, i, j);
+                    avat.Dock = DockStyle.Fill;
+                    i++;
+                    if (i > 5)
+                    {
+                        i = 0;
+                        j++;
+                    }
+                }
+
+                tabControl1.TabPages.Insert(tabControl1.TabPages.Count, imag);
+            }
         }
         private void gaseste_cont(string util, string par)
         {
@@ -109,7 +146,18 @@ namespace Intrebari_Bac
         {
             Form2 x = new Form2();
             x.ShowDialog();
+            if (x.DialogResult == DialogResult.Cancel)
+            {
+                MessageBox.Show($"Ai castigat {x.punctaj} monede");
+                int monede_nou = Convert.ToInt32(textBox9.Text) + x.punctaj;
+                utilizatoriTableAdapter.UpdateMonedeUtilizator(monede_nou, id_sesiune);
+                textBox9.Text = monede_nou.ToString();
+            }
+        }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            deschide_imagini_profil();
         }
 
         private void utilizatoriBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
