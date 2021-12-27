@@ -12,7 +12,7 @@ namespace Intrebari_Bac
 {
     public partial class Form1 : Form
     {
-        TabPage imag = new TabPage(), aut = new TabPage() , log = new TabPage(), profil = new TabPage();
+        TabPage imag = new TabPage(), aut = new TabPage() , log = new TabPage(), profil = new TabPage(), fundaluri = new TabPage();
         string utilizator_sesiune, parola_sesiune;
         int id_sesiune, index_sesiune;
      
@@ -33,6 +33,10 @@ namespace Intrebari_Bac
    
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'database1DataSet.Cumparari_Fundaluri' table. You can move, or remove it, as needed.
+            this.cumparari_FundaluriTableAdapter.Fill(this.database1DataSet.Cumparari_Fundaluri);
+            // TODO: This line of code loads data into the 'database1DataSet.Fundaluri' table. You can move, or remove it, as needed.
+            this.fundaluriTableAdapter.Fill(this.database1DataSet.Fundaluri);
             // TODO: This line of code loads data into the 'database1DataSet.Cumparari_Imagini_Profil' table. You can move, or remove it, as needed.
             this.cumparari_Imagini_ProfilTableAdapter.Fill(this.database1DataSet.Cumparari_Imagini_Profil);
             // TODO: This line of code loads data into the 'database1DataSet.Imagini_profil' table. You can move, or remove it, as needed.
@@ -68,8 +72,17 @@ namespace Intrebari_Bac
         private void deschide_profil()
         {
             tabControl1.TabPages.Insert(tabControl1.TabPages.Count, profil);
-            pictureBox2.Image = Image.FromFile($"Imagini_profil\\{database1DataSet.Utilizatori[index_sesiune].Imag_prof}");
+            pictureBox2.Image = Image.FromFile($"Imagini_profil\\{database1DataSet.Utilizatori[index_sesiune].Imag_prof}.jpg");
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            try
+            {
+                tabPage5.BackgroundImage = Image.FromFile($"Fundal\\{database1DataSet.Utilizatori[index_sesiune].Fundal_Selectat}.jpg");
+                tabPage5.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            catch
+            {
+
+            }
             try
             {
                 textBox9.Text = database1DataSet.Utilizatori[index_sesiune].Monede.ToString();
@@ -98,7 +111,7 @@ namespace Intrebari_Bac
                         }
                     if (ok == 1)
                     {
-                        utilizatoriTableAdapter.Inserare_Utilizator_Nou(util, prl, loc, sco, adm, "def_avatar.jpg", "def_fundal.jpg");
+                        utilizatoriTableAdapter.Inserare_Utilizator_Nou(util, prl, loc, sco, adm, "def_avatar");
                         utilizatoriTableAdapter.Fill(database1DataSet.Utilizatori);
                         tabControl1.TabPages.Remove(tabPage3);
                         utilizator_sesiune = util;
@@ -116,6 +129,66 @@ namespace Intrebari_Bac
                     MessageBox.Show("Parolele nu sunt identice!");
                 
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if(tabControl1.TabPages.Contains(fundaluri) == false)
+            {
+                for(int i = 0; i < database1DataSet.Fundaluri.Count; i++)
+                {
+                    listBox2.Items.Add($"{database1DataSet.Fundaluri[i].Nume_Fundal}");
+                }
+                tabControl1.TabPages.Insert(tabControl1.TabPages.Count, fundaluri);
+            }
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pictureBox4.Image = Image.FromFile($"Fundal\\{listBox2.SelectedItem.ToString()}.jpg");
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            int index_imagine = -1;
+            for (int i = 0; i < database1DataSet.Fundaluri.Count && index_imagine == -1; i++)
+            {
+                if (database1DataSet.Fundaluri[i].Nume_Fundal == listBox2.SelectedItem.ToString())
+                    index_imagine = i;
+            }
+            int ok = 0;
+            for (int i = 0; i < database1DataSet.Cumparari_Fundaluri.Count && ok == 0; i++)
+            {
+                if (database1DataSet.Cumparari_Fundaluri[i].Id_Utilizator == id_sesiune && database1DataSet.Cumparari_Fundaluri[i].Id_Fundal == database1DataSet.Fundaluri[index_imagine].Id_Fundal)
+                    ok = 1;
+            }
+            if (ok == 0)
+            {
+                DialogResult set = MessageBox.Show($"Doriti sa cumparati fundalul pentru {database1DataSet.Fundaluri[index_imagine].Valoare} de monede?", "Cumparare", MessageBoxButtons.YesNo);
+                if (set == DialogResult.Yes)
+                {
+                    if (database1DataSet.Utilizatori[index_sesiune].Monede < database1DataSet.Fundaluri[index_imagine].Valoare)
+                        MessageBox.Show("Nu ai destule monede!");
+                    else
+                    {
+                        int monede_sesiune = Convert.ToInt32(textBox9.Text) - database1DataSet.Fundaluri[index_imagine].Valoare;
+                        textBox9.Text = monede_sesiune.ToString();
+                        utilizatoriTableAdapter.UpdateMonedeUtilizator(monede_sesiune, id_sesiune);
+                        utilizatoriTableAdapter.Fill(this.database1DataSet.Utilizatori);
+                        cumparari_FundaluriTableAdapter.InsertQuery_Cumparare_Fundal(database1DataSet.Fundaluri[index_imagine].Id_Fundal, id_sesiune, database1DataSet.Fundaluri[index_imagine].Valoare);
+                        cumparari_FundaluriTableAdapter.Fill(this.database1DataSet.Cumparari_Fundaluri);
+                    }
+                }
+
+            }
+            else
+            {
+                DialogResult set = MessageBox.Show("Selectezi drept fundal?", "Selectare", MessageBoxButtons.YesNo);
+                if (set == DialogResult.Yes)
+                {
+                    tabPage5.BackgroundImage = Image.FromFile($"Fundal\\{database1DataSet.Fundaluri[index_imagine].Nume_Fundal}.jpg");
+                    tabPage5.BackgroundImageLayout = ImageLayout.Stretch;
+                    utilizatoriTableAdapter.UpdateQuery_Fundal_Utilizator(database1DataSet.Fundaluri[index_imagine].Nume_Fundal, id_sesiune);
+                }
+            }
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -178,7 +251,7 @@ namespace Intrebari_Bac
                 if(set == DialogResult.Yes)
                 {
                     pictureBox2.Image = Image.FromFile($"Imagini_profil\\{listBox1.SelectedItem.ToString()}.jpg");
-                    utilizatoriTableAdapter.Update_Imagine_Profil_Utilizator(listBox1.SelectedItem.ToString()+".jpg", id_sesiune);
+                    utilizatoriTableAdapter.Update_Imagine_Profil_Utilizator(database1DataSet.Imagini_profil[index_imagine].Nume_imagine, id_sesiune);
                 }
             }
         }
@@ -212,10 +285,12 @@ namespace Intrebari_Bac
             aut = tabPage2;
             log = tabPage3;
             profil = tabPage5;
+            fundaluri = tabPage6;
             tabControl1.TabPages.Remove(tabPage2);
             tabControl1.TabPages.Remove(tabPage3);
             tabControl1.TabPages.Remove(tabPage5);
             tabControl1.TabPages.Remove(tabPage4);
+            tabControl1.TabPages.Remove(tabPage6);
         }
         private void button1_Click(object sender, EventArgs e)
         {
